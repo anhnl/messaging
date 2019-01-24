@@ -1,5 +1,3 @@
-== README
-
 ### Setting up
 Make sure that you have the following in config/application.yml:
 ```yaml
