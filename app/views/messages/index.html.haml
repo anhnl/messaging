@@ -1,20 +1,26 @@
 .messages
   .message-row
+    .col.col-1 Created at
     .col.col-1 To Number
     .col.col-2 Message
-    .col.col-1 Created at
     .col.col-1 Status
     .col.col-1 Message ID
+    .col.col-1 Provider
 
   - @messages.each do |message|
     .message-row
+      .col.col-1
+        = message.created_at.strftime("%Y-%m-%d %I:%M")
       .col.col-1
         = message.to_number
       .col.col-2
         = message.message
       .col.col-1
-        = message.created_at.strftime("%Y-%m-%d %H:%M")
-      .col.col-1
-        = message.message_status
+        %div
+          = message.message_status
+        %div
+          = message.status_message
       .col.col-1
         = message.provider_message_id
+      .col.col-1
+        = message.provider

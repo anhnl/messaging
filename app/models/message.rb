@@ -1,5 +1,7 @@
 class Message < ActiveRecord::Base
 
+  paginates_per 20
+
   validates :to_number, presence: true
   validates :message, presence: true
 
