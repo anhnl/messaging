@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190125074006) do
+ActiveRecord::Schema.define(version: 20190125085039) do
+
+  create_table "invalid_numbers", force: :cascade do |t|
+    t.string   "number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "invalid_numbers", ["number"], name: "index_invalid_numbers_on_number"
 
   create_table "messages", force: :cascade do |t|
     t.string   "to_number"

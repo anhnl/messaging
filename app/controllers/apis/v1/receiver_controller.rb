@@ -27,7 +27,7 @@ class Apis::V1::ReceiverController < ApplicationController
     case received_status
     when 'delivered' then 'delivered'
     when 'failed' then 'failed'
-    when 'invalid' then 'invalid_message'
+    when 'invalid' then 'invalid_number'
     end
   end
 

@@ -36,6 +36,7 @@ class MessageHandler
   end
 
   def do_post
+    return if invalid_number?
     # provider.pick will pick a different provider than the previous one automatically
     selected = provider.pick
     response = HTTParty.post(selected, body: {
@@ -46,6 +47,10 @@ class MessageHandler
 
     retry_if_failed(response.code)
     [response, selected]
+  end
+
+  def invalid_number?
+    InvalidNumber.find_by(number: to_number).present?
   end
 
   def retry_if_failed(code)
