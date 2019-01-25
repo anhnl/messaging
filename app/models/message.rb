@@ -15,7 +15,6 @@ class Message < ActiveRecord::Base
   }
 
   def add_to_invalid_numbers
-    p "add_to_invalid_numbers? #{self.message_status}"
     if self.message_status == "invalid_number"
       InvalidNumber.create!(number: self.to_number)
     end
